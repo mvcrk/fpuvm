@@ -1,0 +1,1 @@
+ -d /home/runner/compile -work work -s /home/runner/library.cfg -dbg test.vhd

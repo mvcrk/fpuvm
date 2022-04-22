@@ -1,0 +1,39 @@
+Riviera-PRO 2020.04.130.7729(Linux64) 2022-04-22 00:26:56
+
+Elaboration top modules:
+Architecture                  testcase(test)
+
+
+---------------------------------------------------------------------------------------
+Entity   | Architecture | Library | Info | Compiler Version      | Compilation Options
+---------------------------------------------------------------------------------------
+test     | testcase     | work    |      | 2020.04.130 (Linux64) | -dbg
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+VHDL Package            | Library | Info | Compiler Version      | Compilation Options
+---------------------------------------------------------------------------------------
+standard                | std     |      |                       | <unavailable>
+fpuvm_apps_pkg          | work    |      |                       | <unavailable>
+TEXTIO                  | std     |      |                       | <unavailable>
+std_logic_1164          | ieee    |      |                       | <unavailable>
+NUMERIC_STD             | ieee    |      |                       | <unavailable>
+types_common            | work    |      |                       | <unavailable>
+types_amba4             | work    |      |                       | <unavailable>
+gencomp                 | work    |      |                       | <unavailable>
+types_rocket            | work    |      |                       | <unavailable>
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+Library                 | Comment
+---------------------------------------------------------------------------------------
+ieee                    | Standard IEEE packages library
+std                     | Standard VHDL library
+work                    | None
+---------------------------------------------------------------------------------------
+
+
+Simulation Options: asim test +access+r -dbg
+
+
+The performance of simulation is reduced. Version EDU Edition

@@ -1,0 +1,80 @@
+set TARGET libaz_fpuvm_app
+# libaz_fpuvm_app
+ccomp -vhpi -o $TARGET -dbg fpuvm_vhdl_pkg_to_sv_app.cpp
+# CCOMP: Warning: /home/runner/fpuvm_vhdl_pkg_to_sv_app.cpp : (128, 35): fpuvm_vhdl_pkg_to_sv_app.cpp: In function 'PLI_VOID azRegisterPkgGenApp_vhpi_fn()':
+# CCOMP: Warning: /home/runner/fpuvm_vhdl_pkg_to_sv_app.cpp : (128, 35): ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+# CCOMP: Warning:    azVhpiForeignData.libraryName = "vhpi";
+# CCOMP: Warning: 
+# CCOMP: Warning:                                    ^~~~~~
+# CCOMP: Warning: fpuvm_vhdl_pkg_to_sv_app.cpp:129:33: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+# CCOMP: Warning:    azVhpiForeignData.modelName = "az_fpuvm_vhdl_to_sv_pkg_app";
+# CCOMP: Warning: 
+# CCOMP: Warning:                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# CCOMP: Compilation successful.
+acom -dbg fpuvm_apps_pkg.vhdl 
+# ACOM: File: fpuvm_apps_pkg.vhdl
+# ACOM: Compile Package "fpuvm_apps_pkg"
+# ACOM: Compile Package Body "fpuvm_apps_pkg"
+# ACOM: Compile success 0 Errors 0 Warnings  Analysis time :  10.0 [ms]
+createWorklib work
+# ALIB: Library "work" attached.
+# work = /home/runner/work/work.lib
+# LIBRARY MANAGER: "work" is now working library.
+# work
+acom -dbg test.vhd
+# ACOM: File: test.vhd
+# ACOM: Compile Package "types_rocket"
+# ACOM: Compile Package Body "types_rocket"
+# ACOM: Compile Entity "test"
+# ACOM: Compile Architecture "testcase" of Entity "test"
+# ACOM: Compile success 0 Errors 0 Warnings  Analysis time :  50.0 [ms]
+vsim test +access+r -dbg
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# KERNEL: PLI/VHPI kernel's engine initialization done.
+# PLI: Loading library '/usr/share/Riviera-PRO/bin/libsystf.so'
+# VHPI: Loading library 'libaz_fpuvm_app.so'
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Riviera-PRO EDU Edition. The performance of simulation is reduced.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 4777 kB (elbread=427 elab2=4203 kernel=146 sdf=0)
+# KERNEL: ASDB file was created in location /home/runner/dataset.asdb
+run -all
+# VHPI: Found Pkg 
+# VHPI: Inside USER Pkg ieee.NUMERIC_STD
+# VHPI: Creating SystemVerilog USER Pkg sv_NUMERIC_STD
+# VHPI: Inside USER Pkg work.types_common
+# VHPI: Creating SystemVerilog USER Pkg sv_types_common
+# VHPI: Inside USER Pkg work.types_amba4
+# VHPI: Creating SystemVerilog USER Pkg sv_types_amba4
+# VHPI: Inside USER Pkg work.gencomp
+# VHPI: Creating SystemVerilog USER Pkg sv_gencomp
+# VHPI: Inside USER Pkg work.types_rocket
+# VHPI: Creating SystemVerilog USER Pkg sv_types_rocket
+# VHPI: 
+# VHPI: 
+# VHPI: ********************************************************************************
+# VHPI: 
+# VHPI: Thanks for using FP-UVM VHDL-2-SystemVerilog Package translator app 
+# VHPI: Converted VHDL package named: types_rocket to SV package named: sv_types_rocket 
+# VHPI: Include the below SystemVerilog package file in your project/file-list 
+# VHPI:  to build on UVM testbench for VHDL 
+# VHPI: 	"sv_types_rocket.sv"
+# VHPI: 
+# VHPI: 
+# VHPI: ********************************************************************************
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VHPI: 
+# VSIM: Simulation has finished.
